@@ -50,7 +50,11 @@ stroke <- stroke %>%
 ```
 
 ```{r}
-stroke %>% 
-  select(age, gcs, sbp) %>%
+stroke <- stroke %>% 
+  mutate(category=cut(stroke$sbp, c (0,140,160,300), label = c('normal', 'hpt1','hpt2')))
   
+```
+
+```{r}
+
 ```
