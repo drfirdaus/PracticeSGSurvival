@@ -188,6 +188,20 @@ augment(cox2, data = stroke)
 ```
 
 ```{r}
-new.data <- expand.grid(sbp = c(110, 150, 170), age= c(30,40,20), dm2 = c ('yes','no'))
+new.data <- expand.grid(sbp = c(110, 150, 170), sex= c('male','female'), dm2 = c ('yes','no'))
 new.data
+```
+
+So, to predict using new data
+
+Log Hazard
+
+```{r}
+predict(cox2, newdata = new.data, type = 'lp')
+```
+
+Hazard Risk
+
+```{r}
+predict(cox2, newdata = new.data, type = 'risk')
 ```
