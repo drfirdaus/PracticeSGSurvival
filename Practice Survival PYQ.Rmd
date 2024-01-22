@@ -138,3 +138,9 @@ Linearity
 ```{r}
 mfp.sbp <- mfp(Surv(time = dur_days, event == 'dead' )~fp (sbp, df=4) + sex + dm2 + dm2, family = cox, data = stroke, verbose = TRUE)
 ```
+
+```{r}
+mfp.sbp$pvalue
+```
+
+p-value of p.lin is \>0.05 (0.17), hence linearity is assumed
