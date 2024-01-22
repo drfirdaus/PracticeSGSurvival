@@ -76,3 +76,9 @@ summary(KM1, times = c(10, 20, 30))
 ```{r}
 survdiff(Surv(time = dur_days, event == "dead")~sex, data = stroke, rho = 0)
 ```
+
+```{r}
+survdiff(Surv(time = dur_days, event == "dead")~sex, data = stroke, rho = 1)
+```
+
+p\>0.05, hence there is no difference between survival probability of male and female
