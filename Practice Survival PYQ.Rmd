@@ -40,3 +40,17 @@ stroke <- stroke %>%
 ```{r}
 summary(stroke)
 ```
+
+```{r}
+stroke <- stroke %>%
+  mutate(dur=stroke$doa %--% stroke$dod) %>%
+           mutate(dur=as.duration(dur)) %>%
+  mutate(dur_days = dur/ddays (1))
+
+```
+
+```{r}
+stroke %>% 
+  select(age, gcs, sbp) %>%
+  
+```
