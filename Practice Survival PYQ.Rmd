@@ -130,8 +130,12 @@ Multicollinearity
 Proportional hazard
 
 ```{r}
-
+cph <- cox.zph(cox2, transform = 'km', global = TRUE) ## can use transform=identity / log/km
+cph
+plot(cph)
 ```
+
+All p-value are \> 0.05, hence the proportional hazard is met
 
 Linearity
 
