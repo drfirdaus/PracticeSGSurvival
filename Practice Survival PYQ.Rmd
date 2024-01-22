@@ -70,5 +70,5 @@ quantile (KM1, probs = c (0.25,0.50, 0.75))
 ```
 
 ```{r}
-summary(KM1, times = 20)
+summary(KM1, times = c(10, 20, 30))
 ```
