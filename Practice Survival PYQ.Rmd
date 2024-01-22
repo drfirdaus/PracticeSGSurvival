@@ -56,5 +56,6 @@ stroke <- stroke %>%
 ```
 
 ```{r}
-
+KM1 <- survfit(Surv(time = dur_days, event == 'dead')~1, type= "kaplan-meier", data = stroke)
+summary(KM1)
 ```
