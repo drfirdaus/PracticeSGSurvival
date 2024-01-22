@@ -59,3 +59,16 @@ stroke <- stroke %>%
 KM1 <- survfit(Surv(time = dur_days, event == 'dead')~1, type= "kaplan-meier", data = stroke)
 summary(KM1)
 ```
+
+```{r}
+plotKM <- ggsurvplot(KM1, conf.int = TRUE, surv.median.line = "hv", xlab="days") ##surv.median.line = "hv", xlab("Days"), ylab= "survival probability", break.time.by = 20, risk.table =T)
+plotKM
+```
+
+```{r}
+quantile (KM1, probs = c (0.25,0.50, 0.75))
+```
+
+```{r}
+summary(KM1, times = 20)
+```
