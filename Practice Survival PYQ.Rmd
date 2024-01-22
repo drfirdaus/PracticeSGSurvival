@@ -95,6 +95,6 @@ cox1
 Breslow Method
 
 ```{r}
-cox2 <- coxph(Surv(time = dur_days, event == "dead")~sex + sbp + sex:sbp, data = stroke, method = 'breslow')
+cox2 <- coxph(Surv(time = dur_days, event == "dead")~sex + sbp + dm2, data = stroke, method = 'breslow')
 cox2
 ```
