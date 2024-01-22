@@ -223,3 +223,10 @@ Hazard Risk
 ```{r}
 predict(cox2, newdata = new.data, type = 'risk')
 ```
+
+Create Table
+
+```{r}
+Tbl1 <- tbl_regression(cox2, pvalue_fun = ~style_pvalue(.x, digits = 3))
+Tbl1
+```
