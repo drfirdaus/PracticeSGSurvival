@@ -72,3 +72,7 @@ quantile (KM1, probs = c (0.25,0.50, 0.75))
 ```{r}
 summary(KM1, times = c(10, 20, 30))
 ```
+
+```{r}
+survdiff(Surv(time = dur_days, event == "dead")~sex, data = stroke, rho = 0)
+```
