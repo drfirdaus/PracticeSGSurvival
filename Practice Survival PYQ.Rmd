@@ -1,0 +1,42 @@
+---
+title: "Practice Survival PYQ"
+author: "Ahmad Firdaus Mohamed"
+date: "2024-01-22"
+output: word_document
+---
+
+# Survival Analysis
+
+# Load Library
+
+```{r}
+library(survival)
+library(gtsummary)
+library(survminer)
+library(tidyverse)
+library(broom)
+library(lubridate)
+library(haven)
+library(dplyr)
+library(corrplot)
+library(mfp)
+```
+
+## Read Data
+
+```{r}
+stroke <- read_dta ("stroke_outcome.dta")
+```
+
+```{r}
+summary(stroke)
+```
+
+```{r}
+stroke <- stroke %>%
+  mutate_if(is.labelled,~as_factor(.))
+```
+
+```{r}
+summary(stroke)
+```
