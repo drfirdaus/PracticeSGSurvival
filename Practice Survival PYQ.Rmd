@@ -121,7 +121,7 @@ anova (cox2, cox4, test = 'Chisq')
 
 Checking assumption for CoxPH
 
-Multicollinearity
+Multicollinearity (there is no need check due to only 1 covariate, sbp)
 
 ```{r}
 
@@ -135,7 +135,9 @@ cph
 plot(cph)
 ```
 
-All p-value are \> 0.05, hence the proportional hazard is met
+All p-value are \> 0.05 and global is \>0.05, hence the proportional hazard is met.
+
+Plots show some violation (appear outside line) but not severe.
 
 Linearity
 
@@ -148,3 +150,32 @@ mfp.sbp$pvalue
 ```
 
 p-value of p.lin is \>0.05 (0.17), hence linearity is assumed
+
+Residuals
+
+```{r}
+score.cox <- resid(cox2, type = "score")
+plot(score.cox)
+```
+
+```{r}
+marti.cox <- resid(cox2, type = "martingale")
+plot(marti.cox)
+```
+
+```{r}
+sch.cox <- resid(cox2, type = "schoenfeld")
+plot(sch.cox)
+```
+
+```{r}
+scaled.cox <- resid(cox2, type = "scaledsch")
+plot(scaled.cox)
+```
+
+Checking for every covariate (we should do for all covariate, kalau x mention dia akan ambik yang paling atas)
+
+```{r}
+marti.sex <- resid(cox2, type = "martingale")
+plot(stroke$sex, marti.cox)
+```
