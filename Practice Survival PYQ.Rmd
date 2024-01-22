@@ -98,3 +98,12 @@ Breslow Method
 cox2 <- coxph(Surv(time = dur_days, event == "dead")~sex + sbp + dm2, data = stroke, method = 'breslow')
 cox2
 ```
+
+```{r}
+cox3 <- coxph(Surv(time = dur_days, event == "dead")~sex + sbp + dm2, data = stroke, method = 'breslow')
+cox3
+```
+
+```{r}
+tidy(cox3, conf.int = TRUE)
+```
