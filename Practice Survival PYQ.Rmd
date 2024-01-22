@@ -179,3 +179,15 @@ Checking for every covariate (we should do for all covariate, kalau x mention di
 marti.sex <- resid(cox2, type = "martingale")
 plot(stroke$sex, marti.cox)
 ```
+
+\
+Getting residual using augment
+
+```{r}
+augment(cox2, data = stroke)
+```
+
+```{r}
+new.data <- expand.grid(sbp = c(110, 150, 170), age= c(30,40,20), dm2 = c ('yes','no'))
+new.data
+```
