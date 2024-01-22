@@ -107,3 +107,34 @@ cox3
 ```{r}
 tidy(cox3, conf.int = TRUE)
 ```
+
+Interaction
+
+```{r}
+cox4 <- coxph(Surv(time = dur_days, event == "dead")~sex + sbp + dm2 + sex:dm2, data = stroke, method = 'breslow')
+cox4
+```
+
+```{r}
+anova (cox2, cox4, test = 'Chisq')
+```
+
+Checking assumption for CoxPH
+
+Multicollinearity
+
+```{r}
+
+```
+
+Proportional hazard
+
+```{r}
+
+```
+
+Linearity
+
+```{r}
+mfp.sbp <- mfp(Surv(time = dur_days, event == 'dead' )~fp (sbp, df=4) + sex + dm2 + dm2, family = cox, data = stroke, verbose = TRUE)
+```
