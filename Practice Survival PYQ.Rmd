@@ -192,7 +192,25 @@ new.data <- expand.grid(sbp = c(110, 150, 170), sex= c('male','female'), dm2 = c
 new.data
 ```
 
+```{r}
+augment(cox2,new_data=new.data)
+```
+
 So, to predict using new data
+
+```{r}
+summary(cox2)
+```
+
+```{r}
+tidy(cox2)
+```
+
+Equation = 0.1396\*sex + 0.0053\*sbp + 0.9525\*dm
+
+```{r}
+(0.1396*0) + (0.0053*108) + (0.9525*0)
+```
 
 Log Hazard
 
