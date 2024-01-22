@@ -74,11 +74,27 @@ summary(KM1, times = c(10, 20, 30))
 ```
 
 ```{r}
-survdiff(Surv(time = dur_days, event == "dead")~sex, data = stroke, rho = 0)
+KMlogrank <- survdiff(Surv(time = dur_days, event == "dead")~sex, data = stroke, rho = 0)
+KMlogrank
 ```
 
 ```{r}
-survdiff(Surv(time = dur_days, event == "dead")~sex, data = stroke, rho = 1)
+KMpeto <- survdiff(Surv(time = dur_days, event == "dead")~sex, data = stroke, rho = 1)
+KMpeto
 ```
 
 p\>0.05, hence there is no difference between survival probability of male and female
+
+Efron Method
+
+```{r}
+cox1 <- coxph(Surv(time = dur_days, event == "dead")~sex + sbp + sex:sbp, data = stroke)
+cox1
+```
+
+Breslow Method
+
+```{r}
+cox2 <- coxph(Surv(time = dur_days, event == "dead")~sex + sbp + sex:sbp, data = stroke, method = 'breslow')
+cox2
+```
